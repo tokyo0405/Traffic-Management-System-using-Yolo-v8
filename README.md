@@ -6,33 +6,70 @@ This project implements an intelligent traffic management system that uses compu
 
 Instead of relying on fixed-timer signals, this AI-driven approach adapts signal durations automatically depending on live traffic conditions, ensuring that high-density lanes get longer green signals, while less busy lanes remain on red or yellow.
 
-🧠 Key Features
+⚙️ Instructions to Run the Project
 
-🔍 Real-time Vehicle Detection using YOLOv8 deep learning model.
+Follow the steps below to set up and run the AI-Based Traffic Management System efficiently.
 
-🛣️ Lane-wise Traffic Density Estimation through bounding box mapping and centroid analysis.
+🧩 1. Install Python
 
-🚦 Adaptive Signal Control that adjusts green, yellow, and red durations dynamically.
+Ensure that the latest version of Python (3.10 or higher) is installed on your system.
+You can download it from the official Python website
+.
 
-🎥 Webcam or Video Input Support for live or recorded footage.
+📦 2. Install Dependencies
 
-📊 Performance Dashboard showing traffic counts, lane status, and current signal phase.
+Open a terminal or command prompt in your project directory.
 
-🌱 Sustainability-Oriented — reduces fuel wastage and emissions through efficient traffic flow.
+Install all the required Python libraries by running:
 
-⚙️ Tech Stack
+pip install -r requirements.txt
 
-Programming Language: Python 3.10
 
-Libraries & Frameworks:
+This will automatically install all the necessary modules, including OpenCV, Ultralytics YOLO, NumPy, and cvzone.
 
-OpenCV
- for computer vision processing
+🎥 3. Test Webcam Access
 
-Ultralytics YOLOv8
- for object detection
+Before running the full system, verify that your webcam is accessible and functioning properly:
 
-cvzone
- for visualization overlays
+python opening_cam.py
 
-NumPy, time, and collections for data handling and logic control
+
+If the webcam window appears and displays live video, your camera setup is correct.
+
+🚘 4. Run Object Detection Demo
+
+Once the webcam test succeeds, run the object detection demo to ensure YOLOv8 is working correctly:
+
+python demo_detect.py
+
+
+This will open a window showing real-time object detection results (e.g., cars, trucks, buses, and motorcycles) from the live video feed.
+
+📌 Note:
+Make sure that the YOLO model file (yolov8n.pt) is located inside your main project folder.
+If it is not present, the script will automatically download it from the official Ultralytics repository.
+
+🚦 5. Run Traffic Management Simulation
+
+After confirming object detection, you can run the full Traffic Management System by executing:
+
+python main.py
+
+
+This will start the adaptive traffic control interface where the system detects vehicles in each lane, calculates lane density, and dynamically changes the traffic light signals based on real-time traffic weight.
+
+🧠 6. Testing and Verification
+
+Run all the demo files (demo_detect.py, main.py, etc.) one by one to observe the system’s performance.
+
+Ensure that your lane boundaries are correctly defined in the code to match your camera view.
+
+You can adjust parameters like BASE_GREEN, MAX_GREEN, and YELLOW_DURATION in the script to fine-tune traffic timing behavior.
+
+✅ Final Notes
+
+Keep the YOLO model (yolov8n.pt) inside the project directory for smooth execution.
+
+Ensure proper lighting for accurate vehicle detection.
+
+The system works in real time and can be extended for IoT traffic signal integration in future versions.
